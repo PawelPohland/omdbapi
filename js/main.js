@@ -1,5 +1,5 @@
 const OMDB_API_KEY = "aa0b0e3e";
-const OMDB_URL = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}`;
+const OMDB_URL = `${window.location.protocol}//www.omdbapi.com/?apikey=${OMDB_API_KEY}`;
 
 let OMDB_LIBRARY = null;
 let STORAGE_LIBRARY = null;
