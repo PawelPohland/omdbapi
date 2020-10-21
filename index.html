@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>..:: Movies Library ~~ OMDB API ::..</title>
+</head>
+<body>
+  <div id="page-wrapper">
+    <h1>Movies Library</h1>
+    <h2>OMDB API</h2>
+
+    <div id="omdb-search">
+      <form id="search-form">
+        <div class="form-row">
+          <label for="omdb-title">Title</label>
+          <input type="text" name="omdb-title" id="omdb-title" required="true" placeholder="Title ..." data-omdb-param-name="s" />
+        </div>
+
+        <div class="form-row">
+          <label for="omdb-year">Year</label>
+          <input type="number" name="omdb-year" id="omdb-year" min="1874" max="2020" data-omdb-param-name="y" />
+        </div>
+
+        <div class="form-row">
+          <label for="omdb-plot-type">Plot</label>
+          <select name="omdb-plot-type" id="omdb-plot-type" data-omdb-param-name="plot">
+            <option value="short">short</option>
+            <option value="full">full</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="omdb-type">Type</label>
+          <select name="omdb-type" id="omdb-type" data-omdb-param-name="type">
+            <option value=""></option>
+            <option value="movie">movie</option>
+            <option value="series">series</option>
+            <option value="episode">episode</option>
+          </select>
+        </div>
+        
+        <input type="hidden" name="omdb-id" id="omdb-id" value="" data-omdb-param-name="i" />
+        <input type="hidden" name="omdb-t" id="omdb-t" value="" data-omdb-param-name="t" />
+        <input type="hidden" name="omdb-page" id="omdb-page" value="1" data-omdb-param-name="page" />
+        <input type="hidden" name="omdb-result" id="omdb-result" value="json" data-omdb-param-name="r" />
+        <input type="hidden" name="omdb-callback" id="omdb-callback" value="" data-omdb-param-name="callback" />
+        <input type="hidden" name="omdb-version" id="omdb-version" value="1" data-omdb-param-name="v" />
+
+        <div class="form-row align-right">
+          <button type="reset"><i class="fas fa-undo"></i></button>
+          <button type="submit" id="submit-btn"><i class="fas fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+
+    <div id="movies-library">
+      <div class="caption"><i class="fas fa-video fa-1x"></i> Search results</div>
+      <div class="errors"></div>
+      <div class="spinner sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+    <div id="storage-library">
+      <div class="caption">
+        <i class="fas fa-file-video fa-1x"></i> My movies
+        <a href="#" class="btn-link remove-all"><i class="fas fa-trash-alt"></i> Remove everything</a>
+      </div>
+      <div class="spinner sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/movie.js"></script>
+  <script src="js/library.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
